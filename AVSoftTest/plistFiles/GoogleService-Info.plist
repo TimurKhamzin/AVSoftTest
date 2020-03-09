@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>313307056914-nbdg5ktj910hnrpg5skub9hi7c508a4r.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.313307056914-nbdg5ktj910hnrpg5skub9hi7c508a4r</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCU5TTltJAgv84ao1Ut5FQpy6UcC3tjPVY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>313307056914</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.timurkhamzin.avsoft.AVSoftTest</string>
+	<key>PROJECT_ID</key>
+	<string>avtest-4e13a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>avtest-4e13a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:313307056914:ios:51096c72d29895c79601cb</string>
+	<key>DATABASE_URL</key>
+	<string>https://avtest-4e13a.firebaseio.com</string>
+</dict>
+</plist>
