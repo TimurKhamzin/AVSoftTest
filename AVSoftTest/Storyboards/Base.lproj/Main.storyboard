@@ -131,24 +131,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="730" translatesAutoresizingMaskIntoConstraints="NO" id="l1c-Yg-H9f">
-                                <rect key="frame" x="16" y="60" width="382" height="22"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NA-5Z-Gia">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="22"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="Tl7-FW-ugr"/>
-                                        </constraints>
-                                        <state key="normal" image="gamecontroller" catalog="system">
-                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="menuAction:" destination="e2R-Bj-CEc" eventType="touchUpInside" id="Lva-9e-qSh"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YF3-Js-RVe">
                                 <rect key="frame" x="184" y="832" width="46" height="30"/>
                                 <state key="normal" title="Выйти"/>
@@ -156,14 +138,27 @@
                                     <action selector="exitAction:" destination="e2R-Bj-CEc" eventType="touchUpInside" id="pWO-HV-Ny5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NA-5Z-Gia">
+                                <rect key="frame" x="20" y="44" width="71" height="48"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="Tl7-FW-ugr"/>
+                                </constraints>
+                                <state key="normal" image="flame.fill" catalog="system">
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuAction:" destination="e2R-Bj-CEc" eventType="touchUpInside" id="Lva-9e-qSh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="YF3-Js-RVe" firstAttribute="bottom" secondItem="1mf-AV-aem" secondAttribute="bottom" id="3g5-Bc-NOK"/>
-                            <constraint firstItem="1mf-AV-aem" firstAttribute="trailing" secondItem="l1c-Yg-H9f" secondAttribute="trailing" constant="16" id="Ecp-5e-Xpn"/>
-                            <constraint firstItem="l1c-Yg-H9f" firstAttribute="leading" secondItem="1mf-AV-aem" secondAttribute="leading" constant="16" id="aDm-5o-nkq"/>
-                            <constraint firstItem="YF3-Js-RVe" firstAttribute="centerX" secondItem="l1c-Yg-H9f" secondAttribute="centerX" id="hcN-pD-NR9"/>
-                            <constraint firstItem="l1c-Yg-H9f" firstAttribute="top" secondItem="1mf-AV-aem" secondAttribute="top" constant="16" id="qaK-XE-B5E"/>
+                            <constraint firstItem="YF3-Js-RVe" firstAttribute="centerX" secondItem="MLK-0n-KBh" secondAttribute="centerX" id="CFI-xj-eFZ"/>
+                            <constraint firstItem="9NA-5Z-Gia" firstAttribute="top" secondItem="1mf-AV-aem" secondAttribute="top" id="CKQ-fE-i1z"/>
+                            <constraint firstItem="9NA-5Z-Gia" firstAttribute="leading" secondItem="1mf-AV-aem" secondAttribute="leading" constant="20" id="Er6-6U-7EF"/>
+                            <constraint firstItem="1mf-AV-aem" firstAttribute="bottom" secondItem="9NA-5Z-Gia" secondAttribute="bottom" constant="770" id="ahS-2o-BjT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1mf-AV-aem"/>
                     </view>
@@ -203,12 +198,12 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nOY-4N-6WV">
                                         <rect key="frame" x="0.0" y="42" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VVV-Hr-Prs">
                                         <rect key="frame" x="0.0" y="84" width="382" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -421,6 +416,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gamecontroller" catalog="system" width="64" height="40"/>
+        <image name="flame.fill" catalog="system" width="54" height="64"/>
     </resources>
 </document>

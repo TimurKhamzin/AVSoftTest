@@ -73,6 +73,7 @@ class EditTableViewController: UITableViewController {
         alert.textFields![1].placeholder = "Пол"
         alert.addTextField(configurationHandler: nil)
         alert.textFields![2].placeholder = "Возвраст"
+        alert.textFields![2].keyboardType = .numberPad
         let cancelAction = UIAlertAction(title: "Отменить", style: .destructive, handler: nil) //созадние кнопки отмены
         let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
             
@@ -87,6 +88,9 @@ class EditTableViewController: UITableViewController {
             currentPerson.name = alert.textFields![0].text!
             currentPerson.sex = alert.textFields![1].text!
             currentPerson.age = Int(alert.textFields![2].text!)!
+            
+            //alert.textFields![2].textContentType = .telephoneNumber
+            
             
             
             self.storageManager.addToDB(object: currentPerson)
@@ -148,8 +152,10 @@ class EditTableViewController: UITableViewController {
         alert.addTextField(configurationHandler: nil)
         alert.textFields![1].text = persons.sex
         
+        
         alert.addTextField(configurationHandler: nil)
         alert.textFields![2].text = String(persons.age)
+        alert.textFields![2].keyboardType = .numberPad
         
         let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
             

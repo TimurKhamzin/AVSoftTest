@@ -49,38 +49,40 @@ class AuthViewController: UIViewController {
         passwordTextField.delegate = self
         progressViewOutlet.isHidden = true
         
+        
     }
-    
-    
-    
     
     @IBAction func enterAction(_ sender: Any) {
         signUp = !signUp
     }
     
-    @IBAction func enterActionWithProgressBar(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
     
     //создание метода для полосы загрузки - Progress View
     func createNewLine() {
         
         Timer.scheduledTimer(withTimeInterval: 0.07, repeats: true) { (timer) in
-                     guard self.progress.isFinished == false else {
-                       timer.invalidate()
-                         print("finished")
-                         return
-               }
-                     self.progress.completedUnitCount += 1
-
-                     let progressFloat = Float(self.progress.fractionCompleted)
-                     self.progressViewOutlet.setProgress(progressFloat, animated: true)
-                 }
+            guard self.progress.isFinished == false else {
+                timer.invalidate()
+                print("finished")
+                return
+            }
+            self.progress.completedUnitCount += 1
+            
+            let progressFloat = Float(self.progress.fractionCompleted)
+            self.progressViewOutlet.setProgress(progressFloat, animated: true)
+            
         }
+    }
     
     // создание Алерта - если поля не заполнены
     func showAlert() {
         let alert = UIAlertController(title: "Ошибка", message: "Заполните все поля", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func shortPasswordAlert() {
+        let alert = UIAlertController(title: "Ошибка", message: "Длинна пароля должны быть не менее 6 симоволов", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -100,19 +102,23 @@ extension AuthViewController: UITextFieldDelegate {
         
         
         if(signUp){
+           
             if(!name.isEmpty && !email.isEmpty && !password.isEmpty){
+                 
                 Auth.auth().createUser(withEmail: email, password: password) {(result, error) in
                     if error == nil {
-                            if let result = result {
+                        if let result = result {
                             print(result.user.uid)
                             let ref = Database.database().reference().child("users")
                             ref.child(result.user.uid).updateChildValues(["name": name, "email" : email])
-                                self.dismiss(animated: true, completion: nil)
+                            self.dismiss(animated: true, completion: nil)
                         }
+                        
                     }
+                    
                 }
             }else{
-                    showAlert()
+                showAlert()
             }
         }else{
             
@@ -120,15 +126,22 @@ extension AuthViewController: UITextFieldDelegate {
                 self.createNewLine()
                 Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                     if error == nil {
-                                self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             }else{
-                    showAlert()
+                showAlert()
+            }
+        }
+        if let text = passwordTextField.text {
+            let textLength = text.count
+            if  textLength < 6 {
+                shortPasswordAlert()
+                progressViewOutlet.isHidden = true
             }
         }
         return true
-       
+        
     }
 }
 
