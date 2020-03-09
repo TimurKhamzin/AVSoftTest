@@ -43,7 +43,7 @@ class EditTableViewController: UITableViewController {
     }
     
 
-    //Отображение ячеек с проверкой , если ячейки равны 0 , то вызывается алерт , что таблица пустая и надо добавить животное
+    //Отображение ячеек с проверкой , если ячейки равны 0 , то вызывается алерт , что таблица пустая и надо добавить человека
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if person.count == 0 {
                   self.present(createEmptyAlert(), animated: true)
@@ -100,7 +100,7 @@ class EditTableViewController: UITableViewController {
         return alert
     }
     
-    //Отображение уже добавленных данных о собаке
+    //Отображение уже добавленных данных о человеке
       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
           let cell = tableView.dequeueReusableCell(withIdentifier: HumanTableViewCell.reuseID, for: indexPath) as! HumanTableViewCell
           cell.nameLabel?.text = self.person[indexPath.row].name
