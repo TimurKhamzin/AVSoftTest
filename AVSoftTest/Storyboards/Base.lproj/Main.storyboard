@@ -25,21 +25,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="В данной программе выполнено тестовое задание для компании AVSoft" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sp8-Ih-fL5">
-                                        <rect key="frame" x="0.0" y="52.666666666666657" width="279" height="294.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="52.666666666666657" width="279" height="297.33333333333337"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LK3-p0-5K0">
-                                        <rect key="frame" x="0.0" y="366" width="279" height="30"/>
+                                        <rect key="frame" x="0.0" y="369" width="279" height="30"/>
                                         <state key="normal" title="Узнать репозиторий"/>
                                         <connections>
                                             <action selector="tappedButton:" destination="7Li-py-i37" eventType="touchUpInside" id="cYt-WT-Ze6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwj-bN-Q8e">
-                                        <rect key="frame" x="0.0" y="415" width="279" height="30"/>
+                                        <rect key="frame" x="0.0" y="418" width="279" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="https://github.com/TimurKhamzin/AVSoftTest"/>
                                         <connections>
                                             <action selector="linkButtonAction:" destination="7Li-py-i37" eventType="touchUpInside" id="53D-Sd-6j1"/>

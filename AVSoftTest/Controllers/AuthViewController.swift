@@ -61,6 +61,8 @@ class AuthViewController: UIViewController {
     @IBAction func enterActionWithProgressBar(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    //создание метода для полосы загрузки - Progress View
     func createNewLine() {
         
         Timer.scheduledTimer(withTimeInterval: 0.07, repeats: true) { (timer) in
@@ -76,7 +78,7 @@ class AuthViewController: UIViewController {
                  }
         }
     
-    
+    // создание Алерта - если поля не заполнены
     func showAlert() {
         let alert = UIAlertController(title: "Ошибка", message: "Заполните все поля", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -87,13 +89,15 @@ class AuthViewController: UIViewController {
 
 extension AuthViewController: UITextFieldDelegate {
     
-    
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         let email = emailTextField.text!
         let password = passwordTextField.text!
         let name = nameTextField.text!
+        
+        
+        //проверка соотвестивие данных авторизации
+        
         
         if(signUp){
             if(!name.isEmpty && !email.isEmpty && !password.isEmpty){
@@ -123,9 +127,6 @@ extension AuthViewController: UITextFieldDelegate {
                     showAlert()
             }
         }
-        
-   
-             
         return true
        
     }
