@@ -1,5 +1,5 @@
 //
-//  ShowViewController.swift
+//  EditViewController.swift
 //  AVSoftTest
 //
 //  Created by Timur Khamzin on 06.03.2020.
@@ -12,7 +12,7 @@ import AVFoundation
 import Foundation
 import RealmSwift
 
-class ShowViewController: UIViewController {
+class EditViewController: UIViewController {
     
     var avatar = UIImage()
     var person = Person()
@@ -32,8 +32,11 @@ class ShowViewController: UIViewController {
     @IBOutlet weak var imagePerson: UIImageView!
     @IBOutlet weak var editOutlet: UIButton!
     
+    @IBOutlet weak var formStackView: UIStackView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     var storageManager = StorageManager()
-    var details = EditTableViewController()
+    var details = ShowTableViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +57,19 @@ class ShowViewController: UIViewController {
         self.imagePerson.image = UIImage(data: person.image) ?? UIImage(named: "Image")
         
         setupToHideKeyboardOnTapOnView()
+        settingsToScrollAndStackViews()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func settingsToScrollAndStackViews() {
+        self.scrollView.addSubview(formStackView)
+        self.formStackView.translatesAutoresizingMaskIntoConstraints = true
+        self.formStackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor).isActive = true
+        self.formStackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor).isActive = true
+        self.formStackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true
+        self.formStackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true
+        self.formStackView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
     }
     
     
@@ -124,7 +138,7 @@ class ShowViewController: UIViewController {
 }
 
 
-extension ShowViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             let imageFromPickerController = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
@@ -143,7 +157,7 @@ extension ShowViewController: UIImagePickerControllerDelegate, UINavigationContr
         func setupToHideKeyboardOnTapOnView() {
             let tap: UITapGestureRecognizer = UITapGestureRecognizer(
                 target: self,
-                action: #selector(ShowViewController.dismissKeyboard))
+                action: #selector(EditViewController.dismissKeyboard))
             
             tap.cancelsTouchesInView = false
             view.addGestureRecognizer(tap)

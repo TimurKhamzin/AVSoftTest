@@ -1,5 +1,5 @@
 //
-//  EditViewController.swift
+//  ShowTableViewController.swift
 //  AVSoftTest
 //
 //  Created by Timur Khamzin on 06.03.2020.
@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class EditTableViewController: UITableViewController {
+class ShowTableViewController: UITableViewController {
     
     var humanTableViewCell = HumanTableViewCell()
     var storageManager = StorageManager()
@@ -131,7 +131,7 @@ class EditTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showProfile"{
             let indexPath = tableView.indexPathForSelectedRow
-            let destVC = segue.destination as! ShowViewController
+            let destVC = segue.destination as! EditViewController
             destVC.person = person[indexPath?.row ?? 0]
             
             print(destVC.person)
